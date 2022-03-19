@@ -1,5 +1,5 @@
 export const SUB_FILTER_DATA = {
-  region: ['Europe', 'Oceania', 'Americas', 'Asia', 'Africa', 'Antarctic', ''],
+  region: ['Europe', 'Oceania', 'Americas', 'Asia', 'Africa', 'Antarctic'],
   subregion: [
     'Southeast Europe',
     'Western Europe',

@@ -5,7 +5,6 @@ import Countries from '../../components/Countries/Countries'
 
 const RegionCountries = () => {
   const [countries, setCountries] = useState([])
-  const [error, setError] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const { regionName } = useParams()
   useEffect(() => {
@@ -15,12 +14,10 @@ const RegionCountries = () => {
       const signal = controller.signal
       const data = await fetchCountries('region', regionName, signal)
       if (!Array.isArray(data)) {
-        setError(data)
         setIsLoading(false)
         console.log(data)
         return
       }
-      setError('')
       setCountries(data)
       setIsLoading(false)
     }
@@ -34,7 +31,6 @@ const RegionCountries = () => {
       queryType={`Region "${regionName}"`}
       countries={countries}
       isLoading={isLoading}
-      error={error}
     />
   )
 }
