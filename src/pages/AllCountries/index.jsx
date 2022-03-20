@@ -1,10 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { fetchCountries } from '../../Api'
 import Countries from '../../components/Countries/Countries'
+import SortContext from '../../contexts/SortContext'
+import { compareFunction } from '../../Utilities'
 
 const AllCountries = () => {
   const [countries, setCountries] = useState([])
+  const [sortedCountries, setSortedCountries] = useState([])
   const [isLoading, setIsLoading] = useState(false)
+  const { sortBy, sortType } = useContext(SortContext)
 
   useEffect(() => {
     const controller = new AbortController()
@@ -25,10 +29,16 @@ const AllCountries = () => {
       controller.abort()
     }
   }, [])
+  useEffect(() => {
+    const tempCountries = [...countries]
+    tempCountries.sort(compareFunction(sortBy.toLowerCase(), sortType))
+    setSortedCountries(tempCountries)
+    console.log(tempCountries.map((country) => country.name.common))
+  }, [sortBy, countries, sortType])
   return (
     <Countries
       queryType={'All over the world'}
-      countries={countries}
+      countries={sortedCountries}
       isLoading={isLoading}
     />
   )

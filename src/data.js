@@ -29,3 +29,5 @@ export const SUB_FILTER_DATA = {
 }
 
 export const FILTER_DATA = ['All', 'Region', 'Subregion']
+
+export const SORT_DATA = ['Name', 'Population', 'Area']

@@ -1,14 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import ThemeContext from '../../contexts/ThemeContext'
 
-const Switch = () => {
-  const [enabled, setEnabled] = useState(false)
-  const { theme, setTheme, themeValue } = useContext(ThemeContext)
-  useEffect(() => {
-    enabled ? setTheme(themeValue.light) : setTheme(themeValue.dark)
-  }, [enabled, setTheme, themeValue])
+const Switch = ({ enabled, setEnabled, id }) => {
+  const { theme } = useContext(ThemeContext)
   return (
     <button
+      id={id && id}
       role='switch'
       aria-checked='true'
       aria-labelledby='switch'

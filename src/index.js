@@ -5,12 +5,15 @@ import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { BrowserRouter } from 'react-router-dom'
 import { ThemeContextProvider } from './contexts/ThemeContext'
+import { SortContextProivider } from './contexts/SortContext'
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <ThemeContextProvider>
-        <App />
+        <SortContextProivider>
+          <App />
+        </SortContextProivider>
       </ThemeContextProvider>
     </BrowserRouter>
   </React.StrictMode>,

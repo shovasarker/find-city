@@ -1,9 +1,13 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import ThemeContext from '../../contexts/ThemeContext'
 import Switch from '../Switch'
 
 const Header = () => {
-  const { theme } = useContext(ThemeContext)
+  const { theme, setTheme, themeValue } = useContext(ThemeContext)
+  const [enabled, setEnabled] = useState(false)
+  useEffect(() => {
+    enabled ? setTheme(themeValue.light) : setTheme(themeValue.dark)
+  }, [enabled, setTheme, themeValue])
   return (
     <nav className={`${theme.bg} ${theme.text} py-8 `}>
       <div className={`flex justify-between items-center gap-4`}>
@@ -12,7 +16,7 @@ const Header = () => {
         >
           Find Countries
         </h1>
-        <Switch />
+        <Switch enabled={enabled} setEnabled={setEnabled} />
       </div>
     </nav>
   )
