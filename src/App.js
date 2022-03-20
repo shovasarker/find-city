@@ -7,7 +7,7 @@ import RegionCountries from './pages/RegionCountries'
 import FilterAndSort from './components/FilterAndSort'
 import { AnimatePresence } from 'framer-motion'
 import { useContext } from 'react'
-import ThemeContext from './contexs/ThemeContext'
+import ThemeContext from './contexts/ThemeContext'
 
 function App() {
   const { theme } = useContext(ThemeContext)

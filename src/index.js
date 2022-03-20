@@ -4,7 +4,7 @@ import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { BrowserRouter } from 'react-router-dom'
-import { ThemeContextProvider } from './contexs/ThemeContext'
+import { ThemeContextProvider } from './contexts/ThemeContext'
 
 ReactDOM.render(
   <React.StrictMode>

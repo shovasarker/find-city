@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react'
-import ThemeContext from '../../contexs/ThemeContext'
+import ThemeContext from '../../contexts/ThemeContext'
 
 const Selector = ({ item, setItem, selectorData }) => {
   const { theme } = useContext(ThemeContext)

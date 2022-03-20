@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import ThemeContext from '../../contexs/ThemeContext'
+import ThemeContext from '../../contexts/ThemeContext'
 import { FILTER_DATA, SUB_FILTER_DATA } from '../../data'
 import Selector from '../Selector'
 
