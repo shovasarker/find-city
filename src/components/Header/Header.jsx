@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import ThemeContext from '../../contexts/ThemeContext'
 import Switch from '../Switch'
 
@@ -11,11 +12,13 @@ const Header = () => {
   return (
     <nav className={`${theme.bg} ${theme.text} py-8 `}>
       <div className={`flex justify-between items-center gap-4`}>
-        <h1
-          className={`text-2xl md:text-3xl lg:text-4xl font-bold ${theme.text}`}
-        >
-          Find Countries
-        </h1>
+        <Link to={'/'}>
+          <h1
+            className={`text-2xl md:text-3xl lg:text-4xl font-bold ${theme.text}`}
+          >
+            Find Countries
+          </h1>
+        </Link>
         <Switch enabled={enabled} setEnabled={setEnabled} />
       </div>
     </nav>

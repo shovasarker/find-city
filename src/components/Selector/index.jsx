@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import ThemeContext from '../../contexts/ThemeContext'
 
-const Selector = ({ item, setItem, selectorData }) => {
+const Selector = ({ item, setItem, selectorData, subSelector }) => {
   const { theme } = useContext(ThemeContext)
 
   useEffect(() => {
@@ -9,7 +9,7 @@ const Selector = ({ item, setItem, selectorData }) => {
   }, [selectorData, setItem])
   return (
     <select
-      className={`px-3 py-2 outline-none focus:outline-none rounded-md shadow-lg cursor-pointer ${theme.bg} ${theme.text} border ${theme.border} ${theme.shadow}`}
+      className={`px-3 py-2 outline-none focus:outline-none rounded-md shadow-lg cursor-pointer ${theme.bg} ${theme.text} border ${theme.border} ${theme.shadow} capitalize`}
       value={item}
       onChange={(e) => setItem(e.target.value)}
     >

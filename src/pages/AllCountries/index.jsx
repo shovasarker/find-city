@@ -33,7 +33,6 @@ const AllCountries = () => {
     const tempCountries = [...countries]
     tempCountries.sort(compareFunction(sortBy.toLowerCase(), sortType))
     setSortedCountries(tempCountries)
-    console.log(tempCountries.map((country) => country.name.common))
   }, [sortBy, countries, sortType])
   return (
     <Countries

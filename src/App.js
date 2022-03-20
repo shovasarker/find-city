@@ -8,6 +8,8 @@ import FilterAndSort from './components/FilterAndSort'
 import { AnimatePresence } from 'framer-motion'
 import { useContext } from 'react'
 import ThemeContext from './contexts/ThemeContext'
+import SearchBar from './components/SearchBar'
+import SearchCountries from './pages/SearchCountries'
 
 function App() {
   const { theme } = useContext(ThemeContext)
@@ -15,10 +17,12 @@ function App() {
     <div className={`min-h-screen h-full ${theme.bg} ${theme.text}`}>
       <div className={`container px-6 md:px-12 lg:px-16 xl:px-20 2xl:px-28`}>
         <Header />
+        <SearchBar />
         <FilterAndSort />
         <AnimatePresence>
           <Routes>
             <Route path='/' element={<AllCountries />} />
+            <Route path='/search/:countryName' element={<SearchCountries />} />
             <Route path='/region/:regionName' element={<RegionCountries />} />
             <Route
               path='/subregion/:subRegionName'

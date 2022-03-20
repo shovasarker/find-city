@@ -10,6 +10,7 @@ const Filters = () => {
   const [queryType, setQueryType] = useState('All')
   const [queryText, setQueryText] = useState('')
   const [queryTextSelectorData, setQueryTextSelectorData] = useState([])
+
   useEffect(() => {
     if (queryType === 'All') return
     setQueryTextSelectorData(SUB_FILTER_DATA[queryType?.toLowerCase()])
