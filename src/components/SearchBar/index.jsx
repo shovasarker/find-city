@@ -13,7 +13,6 @@ const SearchBar = () => {
   }
 
   const handleClick = () => {
-    console.log(`/search/${searchText}`)
     if (!searchText) return
     navigate(`search/${searchText}`)
     setSearchText('')
@@ -28,11 +27,11 @@ const SearchBar = () => {
         placeholder='Enter the Country Name'
         value={searchText}
         onChange={handleChange}
-        className={`w-4/5 px-3 py-2 ${theme.inverseBg} ${theme.inverseText} rounded-l-md font-bold `}
+        className={`w-4/5 px-3 py-2 ${theme.inverseBg} ${theme.inverseText} rounded-l-md font-bold outline-none focus:outline-none`}
       />
       <button
         onClick={handleClick}
-        className={`w-1/5 px-3 py-2 ${theme.bg} ${theme.text} rounded-r-md font-bold font-base flex justify-center items-center`}
+        className={`w-1/5 px-3 py-2 ${theme.bg} ${theme.text} rounded-r-md font-bold font-base flex justify-center items-center ${theme.hoverBg} ${theme.hoverText} border ${theme.inverseBorder} transition-colors duration-300`}
       >
         <BiSearch className='md:hidden h-6 w-6' />
         <span className='hidden md:inline-block'>Search</span>

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import ThemeContext from '../../contexts/ThemeContext'
 
-const Selector = ({ item, setItem, selectorData, subSelector }) => {
+const Selector = ({ item, setItem, selectorData }) => {
   const { theme } = useContext(ThemeContext)
 
   useEffect(() => {
