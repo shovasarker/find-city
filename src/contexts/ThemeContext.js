@@ -8,12 +8,16 @@ const themeValue = {
     text: 'text-stone-200',
     inverseText: 'text-gray-800',
     inverseBg: 'bg-stone-200',
+    border: 'border-stone-200',
+    shadow: 'shadow-stone-200/30',
   },
   light: {
     bg: 'bg-stone-100',
     text: 'text-gray-800',
     inverseBg: 'bg-gray-800',
     inverseText: 'text-stone-100',
+    border: 'border-gray-800',
+    shadow: 'shadow-gray-800/30',
   },
 }
 

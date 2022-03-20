@@ -12,13 +12,13 @@ const Sorts = () => {
     <div className='flex gap-4 items-center flex-wrap'>
       <div className='flex items-center justify-start gap-4'>
         <span className={`flex-shrink-0 font-bold ${theme.text}`}>
-          Sort by:
+          Sort by :
         </span>
         <Selector item={sortBy} setItem={setSortBy} selectorData={SORT_DATA} />
       </div>
       <div className='flex items-center justify-start gap-4'>
         <label className={`${theme.text} font-bold`} htmlFor='sort-type'>
-          {sortType ? 'Asec' : 'Desc'}
+          {sortType ? 'Asec :' : 'Desc :'}
         </label>
         <Switch id='sort-type' enabled={sortType} setEnabled={setSortType} />
       </div>

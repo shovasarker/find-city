@@ -9,7 +9,7 @@ const Selector = ({ item, setItem, selectorData }) => {
   }, [selectorData, setItem])
   return (
     <select
-      className={`px-3 py-2 outline-none focus:outline-none rounded-sm  shadow-lg cursor-pointer ${theme.bg} ${theme.text}`}
+      className={`px-3 py-2 outline-none focus:outline-none rounded-md shadow-lg cursor-pointer ${theme.bg} ${theme.text} border ${theme.border} ${theme.shadow}`}
       value={item}
       onChange={(e) => setItem(e.target.value)}
     >

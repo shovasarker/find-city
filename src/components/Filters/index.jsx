@@ -28,7 +28,7 @@ const Filters = () => {
   return (
     <div className='flex gap-4 items-start'>
       <span className={`flex-shrink-0 font-bold ${theme.text}`}>
-        Filter by:
+        Filter by :
       </span>
       <div className='flex flex-wrap gap-4'>
         <Selector
