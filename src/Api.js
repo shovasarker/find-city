@@ -14,7 +14,7 @@ export const fetchCountries = async (
   signal
 ) => {
   const fetchUrl = getFecthUrl(queryType, getQueryText(queryText))
-  console.log(fetchUrl)
+  // console.log(fetchUrl)
   try {
     const res = await fetch(fetchUrl, signal)
     const data = await res.json()

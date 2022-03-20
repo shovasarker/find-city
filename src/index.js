@@ -4,11 +4,14 @@ import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { BrowserRouter } from 'react-router-dom'
+import { ThemeContextProvider } from './contexs/ThemeContext'
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <ThemeContextProvider>
+        <App />
+      </ThemeContextProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

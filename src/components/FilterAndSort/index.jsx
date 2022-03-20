@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import ThemeContext from '../../contexs/ThemeContext'
 import { FILTER_DATA, SUB_FILTER_DATA } from '../../data'
 import Selector from '../Selector'
 
 const FilterAndSort = () => {
   const navigate = useNavigate()
+  const { theme } = useContext(ThemeContext)
   const [queryType, setQueryType] = useState('All')
   const [queryText, setQueryText] = useState('')
   const [queryTextSelectorData, setQueryTextSelectorData] = useState([])
@@ -27,7 +29,7 @@ const FilterAndSort = () => {
   return (
     <div className='flex flex-wrap gap-4 my-5'>
       <div className='flex gap-4 items-start'>
-        <span className='flex-shrink-0 font-bold text-gray-600'>
+        <span className={`flex-shrink-0 font-bold ${theme.text}`}>
           Filter by:
         </span>
         <div className='flex flex-wrap gap-4'>
