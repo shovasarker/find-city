@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import './App.css'
 import AllCountries from './pages/AllCountries'
 import Header from './components/Header/Header'
@@ -10,17 +10,24 @@ import { useContext } from 'react'
 import ThemeContext from './contexts/ThemeContext'
 import SearchBar from './components/SearchBar'
 import SearchCountries from './pages/SearchCountries'
+import SingleCountry from './pages/SingleCountry'
 
 function App() {
   const { theme } = useContext(ThemeContext)
+  const { pathname } = useLocation()
   return (
     <div className={`min-h-screen h-full ${theme.bg} ${theme.text}`}>
       <div
         className={`container px-6 md:px-12 lg:px-16 xl:px-20 2xl:px-28 pb-10`}
       >
         <Header />
-        <SearchBar />
-        <FilterAndSort />
+        {!pathname.includes('/country/') && (
+          <>
+            <SearchBar />
+            <FilterAndSort />
+          </>
+        )}
+
         <AnimatePresence>
           <Routes>
             <Route path='/' element={<AllCountries />} />
@@ -30,6 +37,7 @@ function App() {
               path='/subregion/:subRegionName'
               element={<SubRegionCountries />}
             />
+            <Route path='/country/:countryName' element={<SingleCountry />} />
           </Routes>
         </AnimatePresence>
       </div>

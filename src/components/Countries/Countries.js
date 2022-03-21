@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import Country from '../Country/Country'
+import Card from '../Card'
 import Spinner from '../Spinner'
 import Pagination from '../Pagination'
 
@@ -31,7 +31,7 @@ const Countries = ({ queryType, countries, isLoading }) => {
                   i >= (pageNumber - 1) * 20 && i < pageNumber * 20
               )
               ?.map((country, i) => {
-                return <Country key={i} country={country} />
+                return <Card key={i} country={country} />
               })}
           </motion.div>
           <Pagination
