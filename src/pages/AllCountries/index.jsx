@@ -35,11 +35,13 @@ const AllCountries = () => {
     setSortedCountries(tempCountries)
   }, [sortBy, countries, sortType])
   return (
-    <Countries
-      queryType={'All over the world'}
-      countries={sortedCountries}
-      isLoading={isLoading}
-    />
+    <>
+      <Countries
+        queryType={'All over the world'}
+        countries={sortedCountries}
+        isLoading={isLoading}
+      />
+    </>
   )
 }
 

@@ -15,7 +15,9 @@ function App() {
   const { theme } = useContext(ThemeContext)
   return (
     <div className={`min-h-screen h-full ${theme.bg} ${theme.text}`}>
-      <div className={`container px-6 md:px-12 lg:px-16 xl:px-20 2xl:px-28`}>
+      <div
+        className={`container px-6 md:px-12 lg:px-16 xl:px-20 2xl:px-28 pb-10`}
+      >
         <Header />
         <SearchBar />
         <FilterAndSort />
