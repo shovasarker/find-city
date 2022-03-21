@@ -7,7 +7,7 @@ import Dot from '../Dot/index.jsx'
 const Pagination = ({ pageNumber, setPageNumber, numberOfPages }) => {
   const { theme } = useContext(ThemeContext)
   return (
-    <div className='w-full flex justify-end items-center gap-3 text-base font-bold my-10'>
+    <div className='w-full flex justify-end items-center gap-1.5 md:gap-3 text-base font-bold my-10'>
       {pageNumber > 1 && (
         <Button handleClick={() => setPageNumber(--pageNumber)}>
           <BsChevronLeft />
@@ -23,7 +23,7 @@ const Pagination = ({ pageNumber, setPageNumber, numberOfPages }) => {
         </>
       )}
       <p
-        className={` px-3 py-1.5 rounded-md ${theme.inverseBg} 
+        className={` px-2 md:px-3 py-1.5 rounded-md ${theme.inverseBg} 
           ${theme.inverseText} border ${theme.inverseBorder}`}
       >
         {pageNumber}
