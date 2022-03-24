@@ -11,12 +11,12 @@ export const getQueryText = (queryText) => {
 export const fetchCountries = async (
   queryType = 'all',
   queryText = '',
-  signal
+  signal = null
 ) => {
   const fetchUrl = getFecthUrl(queryType, getQueryText(queryText))
   // console.log(fetchUrl)
   try {
-    const res = await fetch(fetchUrl, signal)
+    const res = await fetch(fetchUrl, signal && signal)
     const data = await res.json()
     if (!Array.isArray(data)) {
       throw data
