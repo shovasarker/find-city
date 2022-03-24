@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { fetchCountries } from '../../Api'
+import BreadCrumb from '../../components/BreadCrumb'
 import Country from '../../components/Country'
 
 const SingleCountry = () => {
@@ -29,6 +30,7 @@ const SingleCountry = () => {
   }, [countryName])
   return (
     <div>
+      <BreadCrumb />
       {countries?.map((country, i) => {
         return <Country key={i} country={country} isLoading={isLoading} />
       })}
