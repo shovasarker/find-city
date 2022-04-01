@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import Card from '../Card'
-import Spinner from '../Spinner'
 import Pagination from '../Pagination'
+import WithSpinner from '../WithSpinner'
 
 const Countries = ({ queryType, countries, isLoading }) => {
   const [pageNumber, setPageNumber] = useState(1)
@@ -14,9 +14,7 @@ const Countries = ({ queryType, countries, isLoading }) => {
       <h1 className='text-center text-2xl font-bold my-10 capitalize'>
         Countries from {queryType}
       </h1>
-      {isLoading ? (
-        <Spinner />
-      ) : (
+      <WithSpinner isLoading={isLoading}>
         <>
           <motion.div
             animate={{ opacity: 1 }}
@@ -40,7 +38,7 @@ const Countries = ({ queryType, countries, isLoading }) => {
             numberOfPages={Math.ceil(countries.length / 20)}
           />
         </>
-      )}
+      </WithSpinner>
     </div>
   )
 }

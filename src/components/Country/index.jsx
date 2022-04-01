@@ -3,7 +3,7 @@ import { fetchCountries } from '../../Api'
 import ArrayDisplay from '../ArrayDisplay'
 import ObjectDisplay from '../ObjectDisplay'
 import SingleDataDisplay from '../SingleDataDisplay'
-import Spinner from '../Spinner'
+import WithSpinner from '../WithSpinner'
 
 const Country = ({ country, isLoading }) => {
   const [borderCountries, setBorderCountries] = useState([])
@@ -41,9 +41,7 @@ const Country = ({ country, isLoading }) => {
 
   return (
     <div>
-      {isLoading ? (
-        <Spinner />
-      ) : (
+      <WithSpinner isLoading={isLoading}>
         <div className='flex flex-col lg:flex-row justify-between items-start gap-6 lg:gap-5'>
           <div className='w-full lg:w-1/2 order-first lg:order-last'>
             <img
@@ -101,7 +99,7 @@ const Country = ({ country, isLoading }) => {
             <SingleDataDisplay title={'Start of Week'} item={startOfWeek} />
           </div>
         </div>
-      )}
+      </WithSpinner>
     </div>
   )
 }
