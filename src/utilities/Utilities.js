@@ -8,10 +8,19 @@ export const addPathtoStorage = (path) => {
 }
 
 export const getSortDataFromStorage = () => {
-  const storedPath = sessionStorage.getItem('sort-data')
-  return storedPath ? JSON.parse(storedPath) : {}
+  const storedSortData = sessionStorage.getItem('sort-data')
+  return storedSortData ? JSON.parse(storedSortData) : {}
 }
 
 export const addSortDatatoStorage = (sortData) => {
   sessionStorage.setItem('sort-data', JSON.stringify(sortData))
+}
+
+export const getThemeFromStorage = () => {
+  const storedTheme = sessionStorage.getItem('theme')
+  return storedTheme ? JSON.parse(storedTheme) : null
+}
+
+export const addThemetoStorage = (theme) => {
+  sessionStorage.setItem('theme', JSON.stringify(theme))
 }

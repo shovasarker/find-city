@@ -1,12 +1,24 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import ThemeContext from '../../contexts/ThemeContext'
+import {
+  addThemetoStorage,
+  getThemeFromStorage,
+} from '../../utilities/Utilities'
 import Switch from '../Switch'
 
 const Header = () => {
   const { theme, setTheme, themeValue } = useContext(ThemeContext)
   const [enabled, setEnabled] = useState(false)
+
   useEffect(() => {
+    if (Object?.keys(theme)?.length > 0) return
+    const themeData = getThemeFromStorage()
+    setEnabled(themeData)
+  }, [theme, setTheme, themeValue])
+
+  useEffect(() => {
+    addThemetoStorage(enabled)
     enabled ? setTheme(themeValue.light) : setTheme(themeValue.dark)
   }, [enabled, setTheme, themeValue])
   return (

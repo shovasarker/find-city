@@ -13,13 +13,6 @@ const Filters = () => {
   const [queryTextSelectorData, setQueryTextSelectorData] = useState([])
 
   useEffect(() => {
-    console.log(
-      'Inside Storage Effect: /n',
-      'queryType: ',
-      queryType,
-      '  queryText: ',
-      queryText
-    )
     if (queryText || queryType) return
     const path = getPathFromStorage()
     if (Object?.keys(path)?.length > 0) {

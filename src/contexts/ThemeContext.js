@@ -28,7 +28,7 @@ const themeValue = {
 }
 
 export const ThemeContextProvider = ({ children }) => {
-  const [theme, setTheme] = useState(themeValue.dark)
+  const [theme, setTheme] = useState({})
   return (
     <ThemeContext.Provider
       value={{
