@@ -6,7 +6,7 @@ const Selector = ({ item, setItem, selectorData }) => {
 
   useEffect(() => {
     setItem(selectorData?.[0])
-  }, [selectorData, setItem, item])
+  }, [selectorData, setItem])
   return (
     <select
       className={`px-3 py-2 outline-none focus:outline-none rounded-md shadow-lg cursor-pointer ${theme.bg} ${theme.text} border ${theme.border} ${theme.shadow} capitalize`}
