@@ -8,6 +8,22 @@ import Switch from '../Switch'
 const Sorts = () => {
   const { sortBy, setSortBy, sortType, setSortType } = useContext(SortContext)
   const { theme } = useContext(ThemeContext)
+
+  // useEffect(() => {
+  //   if (sortBy) return
+  //   const sortData = getSortDataFromStorage()
+  //   if (Object.keys(sortData)?.length > 2) {
+  //     setSortBy(sortData?.sortBy)
+  //     setSortType(sortData?.sortType)
+  //   } else {
+  //     setSortBy('name')
+  //   }
+  // }, [sortBy, setSortBy, setSortType])
+
+  // useEffect(() => {
+  //   addSortDatatoStorage({ sortBy, sortType })
+  // }, [sortBy, sortType])
+
   return (
     <div className='flex gap-4 items-center flex-wrap'>
       <div className='flex items-center justify-start gap-4'>
