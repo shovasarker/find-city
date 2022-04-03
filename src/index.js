@@ -6,13 +6,16 @@ import reportWebVitals from './reportWebVitals'
 import { BrowserRouter } from 'react-router-dom'
 import { ThemeContextProvider } from './contexts/ThemeContext'
 import { SortContextProivider } from './contexts/SortContext'
+import { PathContextProivider } from './contexts/PathContext'
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <ThemeContextProvider>
         <SortContextProivider>
-          <App />
+          <PathContextProivider>
+            <App />
+          </PathContextProivider>
         </SortContextProivider>
       </ThemeContextProvider>
     </BrowserRouter>

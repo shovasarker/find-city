@@ -16,6 +16,7 @@ const RegionCountries = () => {
     const controller = new AbortController()
     const getAllCountries = async (regionName) => {
       setIsLoading(true)
+
       const signal = controller.signal
       const data = await fetchCountries('region', regionName, signal)
       if (!Array.isArray(data)) {
