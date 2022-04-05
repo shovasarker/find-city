@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import PathContext from '../../contexts/PathContext'
 import ThemeContext from '../../contexts/ThemeContext'
@@ -11,29 +11,22 @@ const Filters = () => {
   const { queryType, setQueryType, queryText, setQueryText } =
     useContext(PathContext)
   const navigate = useNavigate()
-  const [queryTextSelectorData, setQueryTextSelectorData] = useState([])
 
   useEffect(() => {
     const path = getPathFromStorage()
     if (queryText || queryType) return
     if (Object?.keys(path)?.length > 0) {
-      setQueryType(path?.queryType)
       setQueryText(path?.queryText)
+      setQueryType(path?.queryType)
     } else {
       setQueryType('All')
     }
   }, [queryText, queryType, setQueryText, setQueryType])
 
   useEffect(() => {
-    if (queryType === 'All') return
-    setQueryTextSelectorData(SUB_FILTER_DATA[queryType?.toLowerCase()])
-  }, [queryType])
-
-  useEffect(() => {
     const query = SUB_FILTER_DATA[queryType?.toLowerCase()]?.find(
       (item) => item === queryText
     )
-    // console.log('queryType: ', queryType, '  queryText: ', queryText)
     if (queryType !== 'All' && !query) return
 
     queryType === 'All'
@@ -56,11 +49,18 @@ const Filters = () => {
           setItem={setQueryType}
           selectorData={FILTER_DATA}
         />
-        {queryType !== 'All' && (
+        {queryType === 'Region' && (
           <Selector
             item={queryText}
             setItem={setQueryText}
-            selectorData={queryTextSelectorData}
+            selectorData={SUB_FILTER_DATA.region}
+          />
+        )}
+        {queryType === 'Subregion' && (
+          <Selector
+            item={queryText}
+            setItem={setQueryText}
+            selectorData={SUB_FILTER_DATA.subregion}
           />
         )}
       </div>
