@@ -1,21 +1,16 @@
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import SortContext from '../../contexts/SortContext'
-import { compareFunction } from '../../Utilities'
 import Countries from '../../components/Countries/Countries'
 import useCountries from '../../hooks/useCountries'
+import useSort from '../../hooks/useSort'
 
 const SearchCountries = () => {
   const { countryName } = useParams()
-  const { countries, isLoading } = useCountries('name', countryName)
-  const [sortedCountries, setSortedCountries] = useState([])
   const { sortBy, sortType } = useContext(SortContext)
+  const { countries, isLoading } = useCountries('name', countryName)
+  const [sortedCountries] = useSort(countries, sortBy, sortType)
 
-  useEffect(() => {
-    const tempCountries = [...countries]
-    tempCountries.sort(compareFunction(sortBy.toLowerCase(), sortType))
-    setSortedCountries(tempCountries)
-  }, [sortBy, countries, sortType])
   return (
     <Countries
       queryType={`Searched Result for "${countryName}"`}

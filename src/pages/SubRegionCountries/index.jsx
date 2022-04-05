@@ -1,21 +1,15 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import Countries from '../../components/Countries/Countries'
 import SortContext from '../../contexts/SortContext'
 import useCountries from '../../hooks/useCountries'
-import { compareFunction } from '../../Utilities'
+import useSort from '../../hooks/useSort'
 
 const SubRegionCountries = () => {
   const { subRegionName } = useParams()
-  const { countries, isLoading } = useCountries('subregion', subRegionName)
-  const [sortedCountries, setSortedCountries] = useState([])
   const { sortBy, sortType } = useContext(SortContext)
-
-  useEffect(() => {
-    const tempCountries = [...countries]
-    tempCountries.sort(compareFunction(sortBy.toLowerCase(), sortType))
-    setSortedCountries(tempCountries)
-  }, [sortBy, sortType, countries])
+  const { countries, isLoading } = useCountries('subregion', subRegionName)
+  const [sortedCountries] = useSort(countries, sortBy, sortType)
 
   return (
     <Countries
